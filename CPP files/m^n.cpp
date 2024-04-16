@@ -27,13 +27,13 @@ void Print(int** matrix, const int& size)
     std::cout << std::endl;
 }
 
-void printOpposite(int** matrix, const int& opposite)
+void printOpposite(int** matrix, const int& size)
 {
-    for (int i = 0; i < opposite; i++)
+    for (int i = 0; i < size; i++)
     {
-        for (int n = 0; n < opposite; n++)
+        for (int n = 0; n < size; n++)
         {
-            std::cout << "    " << matrix[i][n] << " ";
+            std::cout << "    " << matrix[n][i] << " ";
         }
         std::cout << std::endl;
     }
@@ -47,7 +47,6 @@ int main()
     int n = 2;
 
     int size = pow(m, n);
-    int opposite = pow(n,m);
 
 
     int** matrix = (int**) malloc(size * sizeof(int*));
@@ -63,7 +62,7 @@ int main()
 
     Randomizer(matrix, size);
     Print(matrix, size);
-    printOpposite(matrix, opposite);
+    printOpposite(matrix, size);
 
 
 
