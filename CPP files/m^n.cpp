@@ -27,11 +27,11 @@ void Print(int** matrix, const int& size)
     std::cout << std::endl;
 }
 
-void printOpposite(int** matrix, const int& size)
+void printOpposite(int** matrix, const int& rotated)
 {
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < rotated; i++)
     {
-        for (int n = 0; n < size; n++)
+        for (int n = 0; n < rotated; n++)
         {
             std::cout << "    " << matrix[n][i] << " ";
         }
@@ -47,7 +47,7 @@ int main()
     int n = 2;
 
     int size = pow(m, n);
-
+    int rotated = pow(n,m);
 
     int** matrix = (int**) malloc(size * sizeof(int*));
 
@@ -62,7 +62,7 @@ int main()
 
     Randomizer(matrix, size);
     Print(matrix, size);
-    printOpposite(matrix, size);
+    printOpposite(matrix, rotated);
 
 
 
