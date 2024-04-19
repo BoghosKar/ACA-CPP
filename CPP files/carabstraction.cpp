@@ -1,6 +1,7 @@
 #include <iostream>
 
-class Car {
+class Car
+{
 public:
     std::string brand;
     std::string model;
@@ -8,7 +9,8 @@ public:
     int speed;
     int horsePower;
 
-    void PrintInfo() {
+    void PrintInfo()
+    {
         std::cout << "Brand: " << brand << std::endl;
         std::cout << "Model: " << model << std::endl;
         std::cout << "Year: " << year << std::endl;
@@ -17,7 +19,8 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     Car myCar;
     myCar.brand = "Ferrari";
     myCar.model = "812 superfast";
