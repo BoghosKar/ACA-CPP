@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cmath>
+#include <ctime>
+#include <cstdlib>
 
 class Matrix
 {
@@ -13,17 +15,21 @@ public:
     void AllocateMatrix(int m)
     {
         size = pow(m, m);
-        matrix = new int*[size];
+        matrix = (int**)malloc(size * sizeof(int*));
 
         for (int i = 0; i < size; i++)
         {
-            matrix[i] = new int[size];
+            matrix[i] = (int*)malloc(size * sizeof(int));
         }
     }
 
     ~Matrix()
     {
-        delete[] matrix;
+        for (int i = 0; i < size; i++)
+        {
+            free(matrix[i]);
+        }
+        free(matrix);
     }
 
     void Randomize()
