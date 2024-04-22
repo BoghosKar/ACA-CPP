@@ -13,9 +13,9 @@ public:
         // // std::cout << "Call constructor" << std::endl;
     }
 
-    void AllocateMatrix(int m)
+    void AllocateMatrix( int m)
     {
-        size = m; //pow(m, m);
+        size = pow(m, 2);
         matrix = new int*[size];
         for (int i = 0; i < size; i++)
         {
@@ -29,8 +29,10 @@ public:
         for (int i = 0; i < size; i++)
         {
             delete[] matrix[i];
+            
         }
         delete[] matrix;
+        
     }
 
     Matrix(const Matrix& copy)
@@ -84,7 +86,7 @@ public:
         return *this;
     }
 
-    Matrix operator + (const Matrix& copy) const
+    Matrix operator + (const Matrix& copy) 
     {
         // std::cout << "Plus Operator" << std::endl;
         if (size != copy.size)
@@ -95,7 +97,7 @@ public:
 
         Matrix result;
         result.AllocateMatrix(size);
-        
+
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
@@ -103,6 +105,7 @@ public:
                 result.matrix[i][j] = matrix[i][j] + copy.matrix[i][j];
             }
         }
+        
         return result;
     }
 
@@ -111,9 +114,9 @@ public:
         srand(time(nullptr));
         for (int i = 0; i < size; i++)
         {
-            for (int n = 0; n < size; n++)
+            for (int j = 0; j < size; j++)
             {
-                matrix[i][n] = (rand() % 90) + 10;
+                matrix[i][j] = (rand() % 90) + 10;
             }
         }
     }
@@ -122,9 +125,9 @@ public:
     {
         for (int i = 0; i < size; i++)
         {
-            for (int n = 0; n < size; n++)
+            for (int j = 0; j < size; j++)
             {
-                std::cout << "  " << matrix[i][n] << " ";
+                std::cout << "  " << matrix[i][j] << " ";
             }
             std::cout << std::endl;
         }
@@ -167,7 +170,9 @@ int main()
     copiedMatrix.Print();
 
     Matrix result = matrix + copiedMatrix;
+    std::cout << "Result matrix:" << std::endl;
     result.Print();
+
 
     return 0;
 }
