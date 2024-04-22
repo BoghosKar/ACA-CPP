@@ -15,7 +15,7 @@ public:
 
     void AllocateMatrix( int m)
     {
-        size = pow(m, 2);
+        size = m * m;
         matrix = new int*[size];
         for (int i = 0; i < size; i++)
         {
