@@ -43,8 +43,12 @@ private:
 public:
 
     Car(const std::string& b, const std::string& m, const int& y, const int& hp, const carRadio& r)
-    : brand(b), model(m), year(y), horsePower(hp), radio(r)
     {
+        brand = b;
+        model = m;
+        year = y;
+        horsePower = hp;
+        radio = r;
         std::cout << "Call Parameter Constructor for Car" << std::endl;
     }
 
