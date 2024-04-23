@@ -94,13 +94,13 @@ public:
         std::cout << "Destructor for Parking" << std::endl;
     }
 
-    void parkCar(const Car& c)
+    void parkCar(Car& c)
     {
         if (parkedCars < size)
         {
-            carPtr = new Car(c);
+            carPtr = &c;
             parkedCars++;
-            c.Print();
+            carPtr->Print();
         } else
         {
             std::cout << "Parking is full" << std::endl;
