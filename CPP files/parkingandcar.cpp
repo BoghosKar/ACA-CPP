@@ -73,7 +73,7 @@ public:
 class Parking
 {
 private:
-    Car car;
+    Car* carPtr;
     int size;
     int parkedCars;
 
@@ -83,12 +83,14 @@ public:
     {
         size = s;
         parkedCars = 0;
+        carPtr = nullptr;
     }
 
     Parking() {}
 
     ~Parking() 
     {
+        delete[] carPtr;
         std::cout << "Destructor for Parking" << std::endl;
     }
 
@@ -96,7 +98,7 @@ public:
     {
         if (parkedCars < size)
         {
-            car = c;
+            carPtr = new Car(c);
             parkedCars++;
             c.Print();
         } else
