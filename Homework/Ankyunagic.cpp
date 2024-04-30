@@ -79,6 +79,7 @@ int main()
     {
         free(matrix[i]);
     }
+
     
     free(matrix);
 
