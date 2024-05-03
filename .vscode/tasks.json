@@ -7,10 +7,10 @@
       "args": [
         "-fdiagnostics-color=always",
         "-g",
-        "${workspaceFolder}/Animal/src/*.cpp",
+        "${workspaceFolder}/src/*.cpp",
         "-I${workspaceFolder}/include",
         "-o",
-        "${workspaceFolder}/Animal/build/main.exe"
+        "${workspaceFolder}/build/main.exe"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
