@@ -3,7 +3,8 @@
 #include "../include/land.h"
 #include "../include/frog.h"
 
-int main() {
+int main()
+{
     Frog frog;
 
     std::cout << "Frog stats: ";
