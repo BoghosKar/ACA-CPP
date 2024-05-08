@@ -2,8 +2,9 @@
 #define LAND_H
 
 #include <string>
+#include "../include/animal.h"
 
-class Land
+class Land : public virtual Animal
 {
 protected:
     std::string land;

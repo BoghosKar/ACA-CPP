@@ -2,8 +2,9 @@
 #define WATER_H
 
 #include <string>
+#include "../include/animal.h"
 
-class Water
+class Water : public virtual Animal
 {
 protected:
     std::string water;

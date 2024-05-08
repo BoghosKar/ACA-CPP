@@ -3,9 +3,9 @@
 
 #include "water.h"
 #include "land.h"
-#include <iostream>
+#include "animal.h"
 
-class Frog : public virtual Water, public virtual Land
+class Frog : public virtual Water, public virtual Land, public virtual Animal
 {
 public:
     Frog();
