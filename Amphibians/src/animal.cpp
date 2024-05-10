@@ -1,3 +1,18 @@
 #include "../include/animal.h"
 
-Animal::~Animal() {}
+int Animal::count = 0;
+
+Animal::Animal()
+{
+    count++;
+}
+
+Animal::~Animal()
+{
+    count--;
+}
+
+int Animal::getCount()
+{
+    return count;
+}

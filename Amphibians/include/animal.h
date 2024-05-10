@@ -5,9 +5,12 @@
 
 class Animal
 {
+private:
+    static int count;
 public:
-    Animal() {}
-    ~Animal() {}
+    Animal();
+    virtual ~Animal();
+    static int getCount();
 };
 
 #endif // ANIMAL_H

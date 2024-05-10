@@ -50,5 +50,5 @@
     "sstream": "cpp",
     "cstdarg": "cpp"
   },
-  "C_Cpp.errorSquiggles": "disabled"
+  "C_Cpp.errorSquiggles": "enabled"
 }
