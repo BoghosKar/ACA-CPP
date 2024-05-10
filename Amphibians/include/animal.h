@@ -9,7 +9,7 @@ private:
     static int count;
 public:
     Animal();
-    virtual ~Animal();
+    ~Animal();
     static int getCount();
 };
 
