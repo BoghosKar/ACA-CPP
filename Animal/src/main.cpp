@@ -7,7 +7,7 @@
 #include "../include/snake.h"
 
 int main()
-{  
+{
     const int numAnimals = 5;
     Animal* animals[numAnimals];
 
@@ -16,19 +16,40 @@ int main()
     animals[2] = new Cow("moo", 15, 600);
     animals[3] = new Sheep("baaa", 8, 120);
     animals[4] = new Snake("ssssssssss", 2, 10);
-    
+
     for (int i = 0; i < numAnimals; ++i)
     {
         animals[i]->stats();
     }
+
+    std::cout << std::endl;
+
+    // move
+    std::cout << "[MOVE CONSTRUCTOR]" << std::endl;
+    
+    Dog originalDog("woof", 10, 150);
+    Dog movedDog = Dog("temp", 0, 0);
+    
+    movedDog = std::move(originalDog);
+    movedDog.stats();
+    
+    std::cout << std::endl;
+
+    // move assignment
+    std::cout << "[MOVE ASSIGNMENT]" << std::endl;
+    
+    Dog anotherDog("bark", 5, 100);
+    
+    anotherDog = Dog("temp", 0, 0);
+    anotherDog.stats();
+    std::cout << std::endl;
 
     for (int i = 0; i < numAnimals; ++i)
     {
         delete animals[i];
     }
 
-    std::cout << "Click Enter to close";
+    std::cout << "Press Enter to Close" << std::endl;
     std::cin.get();
-
     return 0;
 }
