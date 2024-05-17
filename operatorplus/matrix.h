@@ -12,6 +12,13 @@ public:
 
     ~Matrix();
 
+    Matrix(const Matrix& other); //copy const
+    Matrix& operator = (const Matrix& other); //copy assignment 
+
+    Matrix(Matrix&& other); //move const
+    Matrix& operator = (Matrix&& other); //move assignment 
+
+
     Matrix& operator++();
 
     Matrix operator++(int);
