@@ -6,7 +6,7 @@
 class Dog : public Animal
 {
 public:
-    Dog(const std::string& voice, int age, int weight);
+    explicit Dog(int weight);
     void stats() const override;
     ~Dog() override;
 };

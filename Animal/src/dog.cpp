@@ -1,13 +1,10 @@
 #include "../include/dog.h"
 
-Dog::Dog(const std::string& voice, int age, int weight) : Animal(voice, age, weight) {}
+Dog::Dog(int weight) : Animal(weight) {}
 
 void Dog::stats() const
 {
-    std::cout << "Dog says: " << voice << ", Age: " << age << ", Weight: " << weight << std::endl;
+    std::cout << "Dog Weight: " << weight << std::endl;
 }
 
-Dog::~Dog()
-{
-    // std::cout << __func__ << std::endl;
-}
+Dog::~Dog() {}

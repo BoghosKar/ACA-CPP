@@ -1,43 +1,52 @@
 #include "../include/animal.h"
 
-Animal::Animal(const std::string& voice, int age, int weight) : voice(voice), age(age), weight(weight) {}
+Animal::Animal(int weight) : weight(weight) {}
 
-// copy 
-Animal::Animal(const Animal& other) : voice(other.voice), age(other.age), weight(other.weight) {}
-
+// copy
+Animal::Animal(const Animal& other) : weight(other.weight) {}
 
 // copy assignment
-Animal& Animal:: operator= (const Animal& other)
+Animal& Animal::operator=(const Animal& other)
 {
     if (this != &other)
     {
-        voice = other.voice;
-        age = other.age;
         weight = other.weight;
     }
     return *this;
 }
 
-
 // move
-Animal::Animal(Animal&& other) : voice(std::move(other.voice)), age(other.age), weight(other.weight)
+Animal::Animal(Animal&& other) noexcept : weight(other.weight)
 {
-    other.age = 0;
     other.weight = 0;
 }
 
 // move assignment
-Animal& Animal::operator = (Animal&& other)
+Animal& Animal::operator=(Animal&& other) noexcept
 {
     if (this != &other)
     {
-        voice = std::move(other.voice);
-        age = other.age;
         weight = other.weight;
-        other.age = 0;
         other.weight = 0;
     }
     return *this;
 }
 
+// comparison operators
+bool Animal::operator < (const Animal& other) const
+{
+    return weight < other.weight;
+}
+
+bool Animal::operator > (const Animal& other) const
+{
+    return weight > other.weight;
+}
+
+bool Animal::operator == (const Animal& other) const
+{
+    return weight == other.weight;
+}
+
+// Destructor
 Animal::~Animal() {}

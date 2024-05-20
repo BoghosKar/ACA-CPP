@@ -1,53 +1,57 @@
 #include <iostream>
 #include "../include/animal.h"
-#include "../include/dog.h"
 #include "../include/cat.h"
+#include "../include/dog.h"
 #include "../include/cow.h"
 #include "../include/sheep.h"
 #include "../include/snake.h"
 
 int main()
 {
-    const int numAnimals = 5;
-    Animal* animals[numAnimals];
+    // const int numAnimals = 5;
+    // Animal* animals[numAnimals];
 
-    animals[0] = new Dog("woof", 10, 150);
-    animals[1] = new Cat("meow", 5, 80);
-    animals[2] = new Cow("moo", 15, 600);
-    animals[3] = new Sheep("baaa", 8, 120);
-    animals[4] = new Snake("ssssssssss", 2, 10);
+    // animals[0] = new Dog(150);
+    // animals[1] = new Cat(80);
+    // animals[2] = new Cow(600);
+    // animals[3] = new Sheep(120);
+    // animals[4] = new Snake(10);
 
-    for (int i = 0; i < numAnimals; ++i)
+    // for (int i = 0; i < numAnimals; ++i)
+    // {
+    //     animals[i]->stats();
+    // }
+
+    // std::cout << std::endl;
+
+    // Comparison
+    std::cout << "[COMPARISON OPERATOR]" << std::endl;
+    
+    Dog dog1(150);
+    Dog dog2(100);
+    
+    if (dog1 < dog2)
     {
-        animals[i]->stats();
+        std::cout << "dog 1 is lighter than dog 2" << std::endl;
     }
 
-    std::cout << std::endl;
-
-    // move
-    std::cout << "[MOVE CONSTRUCTOR]" << std::endl;
-    
-    Dog originalDog("woof", 10, 150);
-    Dog movedDog = Dog("temp", 0, 0);
-    
-    movedDog = std::move(originalDog);
-    movedDog.stats();
-    
-    std::cout << std::endl;
-
-    // move assignment
-    std::cout << "[MOVE ASSIGNMENT]" << std::endl;
-    
-    Dog anotherDog("bark", 5, 100);
-    
-    anotherDog = Dog("temp", 0, 0);
-    anotherDog.stats();
-    std::cout << std::endl;
-
-    for (int i = 0; i < numAnimals; ++i)
+    if (dog1 > dog2)
     {
-        delete animals[i];
+        std::cout << "dog 1 is heavier than dog 2" << std::endl;
     }
+
+    if (dog1 == dog2)
+    {
+        std::cout << "dog 1 and dog 2 have the same weight" << std::endl;
+    }else
+    {
+        std::cout << "dog1 and dog2 have different weights" << std::endl;
+    }
+
+    // for (int i = 0; i < numAnimals; ++i)
+    // {
+    //     delete animals[i];
+    // }
 
     std::cout << "Press Enter to Close" << std::endl;
     std::cin.get();

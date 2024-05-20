@@ -1,13 +1,10 @@
 #include "../include/cow.h"
 
-Cow::Cow(const std::string& voice, int age, int weight) : Animal(voice, age, weight) {}
+Cow::Cow(int weight) : Animal(weight) {}
 
 void Cow::stats() const
 {
-    std::cout << "Cow says: " << voice << ", Age: " << age << ", Weight: " << weight << std::endl;
+    std::cout << "Weight: " << weight << std::endl;
 }
 
-Cow::~Cow()
-{
-    // std::cout << __func__ << std::endl;
-}
+Cow::~Cow(){}
