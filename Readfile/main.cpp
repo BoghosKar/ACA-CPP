@@ -50,17 +50,24 @@ bool isFloat(const std::string& str)
     return decimalPointSeen;
 }
 
-std::string determineType(const std::string& str)
+enum valueType
+{
+    INT,
+    FLOAT,
+    STRING
+};
+
+valueType determineType(const std::string& str)
 {
     if (isInteger(str))
     {
-        return "int";
+        return INT;
     }else if (isFloat(str))
     {
-        return "float";
+        return FLOAT;
     }else
     {
-        return "string";
+        return STRING;
     }
 }
 
@@ -69,8 +76,7 @@ int main()
 {
     std::ifstream file("text.txt");
     
-    if (!file.is_open())
-    {
+    if (!file.is_open()) {
         std::cerr << "Error: Could not open the file." << std::endl;
         return 1;
     }
@@ -78,12 +84,36 @@ int main()
     std::string line;
     while (std::getline(file, line))
     {
-        std::string type = determineType(line);
-        std::cout << line << " - " << type << std::endl;
+        valueType type = determineType(line);
+        std::cout << line << " - ";
+        
+        switch (type) {
+            case INT:
+            {
+                std::cout << "int";
+                break;
+            }
+            case FLOAT:
+            {
+                std::cout << "float";
+                break;
+            }
+            case STRING:
+            {
+                std::cout << "string";
+                break;
+            }
+            default:
+            {
+                std::cout << "unknown";
+                break;
+            }
+        }
+        std::cout << std::endl;
     }
 
     file.close();
-    std::cout << "Click Enter to close" << std::endl;
+    std::cout << "Press Enter to Close" << std::endl;
     std::cin.get();
     return 0;
 }
