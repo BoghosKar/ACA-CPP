@@ -50,7 +50,7 @@ bool isFloat(const std::string& str)
     return decimalPointSeen;
 }
 
-enum valueType
+enum class valueType
 {
     INT,
     FLOAT,
@@ -61,13 +61,13 @@ valueType determineType(const std::string& str)
 {
     if (isInteger(str))
     {
-        return INT;
-    }else if (isFloat(str))
+        return valueType::INT;
+    } else if (isFloat(str))
     {
-        return FLOAT;
-    }else
+        return valueType::FLOAT;
+    } else
     {
-        return STRING;
+        return valueType::STRING;
     }
 }
 
@@ -88,17 +88,17 @@ int main()
         std::cout << line << " - ";
         
         switch (type) {
-            case INT:
+            case valueType::INT:
             {
                 std::cout << "int";
                 break;
             }
-            case FLOAT:
+            case valueType::FLOAT:
             {
                 std::cout << "float";
                 break;
             }
-            case STRING:
+            case valueType::STRING:
             {
                 std::cout << "string";
                 break;
