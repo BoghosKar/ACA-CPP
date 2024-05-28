@@ -1,9 +1,24 @@
 #ifndef FIBONACCI_H
 #define FIBONACCI_H
 
-constexpr int fibonacci(int n)
+template<int N>
+struct Fibonacci
 {
-    return (n <= 1) ? n : (fibonacci(n - 1) + fibonacci(n - 2));
-}
+    static constexpr int value = Fibonacci<N - 1>::value + Fibonacci<N - 2>::value;
+};
+
+// case - fibonacci 1
+template<>
+struct Fibonacci<1>
+{
+    static constexpr int value = 1;
+};
+
+// case - fibonacci 0
+template<>
+struct Fibonacci<0>
+{
+    static constexpr int value = 0;
+};
 
 #endif // FIBONACCI_H
