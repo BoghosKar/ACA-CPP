@@ -6,7 +6,7 @@ template <typename T>
 Vector<T>::Vector() : data(nullptr), vecSize(0), vecCapacity(0) {}
 
 template <typename T>
-Vector<T>::Vector(std::initializer_list<T> initList) : data(new T[initList.size()]), vecSize(initList.size()), vecCapacity(initList.size())
+Vector<T>::Vector(std::initializer_list<T> initList) : data(new T[initList.size() * 2]), vecSize(initList.size()), vecCapacity(initList.size() * 2)
 {
     int i = 0;
     
