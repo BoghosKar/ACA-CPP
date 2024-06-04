@@ -23,6 +23,28 @@ int main() {
     myList.pop_front();
     std::cout << "List after pop front: ";
     myList.traverse();
+    
+    std::cout << std::endl;
+
+    // reverse list
+    myList.reverse();
+    std::cout << "List after reverse: ";
+    myList.traverse();
+    
+    std::cout << std::endl;
+
+    // findfromend
+    int n = 2;
+    int result = myList.findNthFromEnd(n);
+    if (result != -1)
+    {
+        std::cout << "The " << n << "nd element from the end is: " << result << std::endl;
+    } else
+    {
+        std::cout << "invalid position" << std::endl;
+    }
+
+    std::cout << std::endl;
 
     // cycle for test
     Node* firstNode = myList.getHead();

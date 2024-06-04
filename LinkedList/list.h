@@ -12,6 +12,8 @@ public:
     List();
     ~List();
 
+    void reverse();
+    int findNthFromEnd(int n);
 
     void push_front(int val);
     void pop_front();

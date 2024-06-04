@@ -13,6 +13,57 @@ List::~List()
     }
 }
 
+void List::reverse()
+{
+    if (head == nullptr || head->next == nullptr) 
+    {
+        return;
+    }
+
+    Node* prev = nullptr;
+    Node* current = head;
+    Node* next = nullptr;
+    
+    while (current != nullptr)
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    head = prev;
+}
+
+int List::findNthFromEnd(int n)
+{
+    if (head == nullptr || n <= 0)
+    {
+        return 1; 
+    }
+
+    Node* first = head;
+    Node* second = head;
+
+   for (int i = 0; i < n; ++i)
+    {
+        if (first == nullptr)
+        {
+            return -1;
+        }
+        first = first->next;
+    }
+
+    while (first != nullptr)
+    {
+        first = first->next;
+        second = second->next;
+    }
+
+    return second->data;
+}
+
+
 void List::push_front(int val)
 {
     Node* newNode = new Node(val);
