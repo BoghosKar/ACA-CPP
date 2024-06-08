@@ -1,4 +1,4 @@
-#include "../LinkedList/list.h"
+#include "../SingleLinkedList\list.h"
 #include <iostream>
 
 List::List() : head(nullptr) {};
