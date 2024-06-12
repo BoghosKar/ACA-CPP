@@ -4,40 +4,13 @@
 #include <vector>
 #include <stdexcept>
 
-class StackUsingVector
+class StackUsingVector : private std::vector<int>
 {
-private:
-    std::vector<int> vec;
-
 public:
-    void push(int val)
-    {
-        vec.push_back(val);
-    }
-    
-    void pop()
-    {
-        if (vec.empty())
-        {
-            throw std::out_of_range("Stack is empty");
-        }
-        vec.pop_back();
-    }
-
-    int top() const
-    {
-        if (vec.empty())
-        {
-            throw std::out_of_range("Stack is empty");
-        }
-
-        return vec.back();
-    }
-
-    bool empty() const
-    {
-        return vec.empty();
-    }
+    using std::vector<int>::push_back;
+    using std::vector<int>::pop_back;
+    using std::vector<int>::back;
+    using std::vector<int>::empty;
 };
 
 #endif // STACKUSINGVECTOR_H

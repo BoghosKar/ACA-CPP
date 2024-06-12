@@ -3,39 +3,13 @@
 
 #include "CustomForwardList.h"
 
-class StackUsingList
+class StackUsingList : private ForwardList
 {
-private:
-    ForwardList list;
-
 public:
-    void push(int val)
-    {
-        list.push_front(val);
-    }
-
-    void pop()
-    {
-        if(list.empty())
-        {
-            throw std::out_of_range("Stack is empty");
-        }
-        list.pop_front();
-    }
-
-    int top() const
-    {
-        if(list.empty())
-        {
-            throw std::out_of_range("Stack is empty");
-        }
-        return list.front();
-    }
-
-    bool empty() const
-    {
-        return list.empty();
-    }
+    using ForwardList::push_front;
+    using ForwardList::pop_front;
+    using ForwardList::front;
+    using ForwardList::empty;
 };
 
 #endif // STACKUSINGLIST_H
