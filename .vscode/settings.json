@@ -50,7 +50,8 @@
     "sstream": "cpp",
     "cstdarg": "cpp",
     "list": "cpp",
-    "forward_list": "cpp"
+    "forward_list": "cpp",
+    "map": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
