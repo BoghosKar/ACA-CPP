@@ -43,8 +43,8 @@ void postorderTraversal(TreeNode* node)
         return;
     }
     
-    preorderTraversal(node->left);
-    preorderTraversal(node->right);
+    postorderTraversal(node->left);
+    postorderTraversal(node->right);
     std::cout << node->data << " ";
 }
 
