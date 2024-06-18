@@ -76,6 +76,20 @@ void levelOrderTraversal(TreeNode* root)
     }
 }
 
+void printTreeStructure(TreeNode* root)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+
+    std::cout << "         " << root->data << std::endl;
+    std::cout << "        / \\" << std::endl;
+    std::cout << "       " << root->left->data << "   " << root->right->data << std::endl;
+    std::cout << "      / \\ / \\" << std::endl;
+    std::cout << "     " << root->left->left->data << "  " << root->left->right->data << " " << root->right->left->data << "  " << root->right->right->data << std::endl;
+}
+
 
 int main()
 {
@@ -106,6 +120,11 @@ int main()
     std::cout << "Level Order Traversal: ";
     levelOrderTraversal(root);
     std::cout << std::endl;
+
+    std::cout << "Tree Structure:" << std::endl;
+    printTreeStructure(root);
+    std::cout << std::endl;
+
 
     return 0;
 }
