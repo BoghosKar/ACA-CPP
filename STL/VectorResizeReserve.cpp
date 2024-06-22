@@ -45,7 +45,7 @@ public:
         
             for (int i = 0; i < size; ++i)
             {
-                new_data[i] = data[i]; // Copy existing elements
+                new_data[i] = data[i]; 
             }
 
             delete[] data;
