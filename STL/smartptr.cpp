@@ -36,7 +36,7 @@ public:
     //move assignment
     SmartPointer& operator = (SmartPointer&& other) noexcept
     {
-        if(this != other)
+        if(this != &other)
         {
             delete ptr;
             ptr = other.ptr;
