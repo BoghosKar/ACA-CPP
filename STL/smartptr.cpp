@@ -38,9 +38,9 @@ public:
     {
         if(this != &other)
         {
-            delete ptr;
-            ptr = other.ptr;
-            other.ptr = nullptr;
+            delete other.ptr;
+            other.ptr = ptr;
+            ptr = nullptr;
         }
         return *this;
     }
